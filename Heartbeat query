@@ -1,0 +1,4 @@
+Heartbeat
+| where TimeGenerated > ago(5m)
+| summarize LastHeartbeat = max(TimeGenerated) by Computer, OSType, Version, ResourceId
+| order by LastHeartbeat desc
